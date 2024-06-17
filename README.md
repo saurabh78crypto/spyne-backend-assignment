@@ -2,6 +2,15 @@
 
 This repository contains the implementation of a microservices-based application consisting of two services: User Management Service and Discussion Service. These services are designed to manage user-related operations and discussion functionalities within a social media platform.
 
+## Table of Contents
+
+1. Overview
+2. Getting Started
+3. API Documentation
+4. Testing
+5. Database Schema
+6. Low Level Design 
+
 ## Overview
 
 ### User Management Service
