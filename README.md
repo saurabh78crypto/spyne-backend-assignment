@@ -38,7 +38,12 @@ cd spyne-backend-assignment
 cd user-management-service
 ``
 
-4. Install dependencies for User Management Service and Start the Service
+4. Create .env file in the directory including following variables
+``
+PORT, BASE_URL, CON_URL, JWT_SECRET_KEY, CORS_ORIGIN, CORS_METHODS
+`` 
+
+5. Install dependencies for User Management Service and Start the Service
 ``
 npm install
 npm start
@@ -50,7 +55,12 @@ npm start
 cd discussion-service
 ``
 
-4. Install dependencies for Discussion Service and Start the Service
+4. Create .env file in the directory including following variables
+``
+PORT, BASE_URL, CON_URL, CORS_ORIGIN, CORS_METHODS
+`` 
+
+5. Install dependencies for Discussion Service and Start the Service
 ``
 npm install
 npm start
@@ -81,6 +91,13 @@ npm start
 - Delete Discussion: DELETE `/discussions/discussion/delete/:id`
 - Get List of Discussions by Text or Tag: GET `/discussions/discussions/search`
 - Increment the View Count of Discussion: GET `/discussions/discussion/:id`
+
+
+## Testing
+
+Use the provided Postman collection to test the APIs of the User Management Service and the Discussion Service. The collection includes tests for various endpoints, covering CRUD operations, authentication, and more.
+
+`https://elements.getpostman.com/redirect?entityId=25343998-ae8e919a-3145-44e2-bb1c-a9aa434c5074&entityType=collection`
 
 
 ## Database Schema
@@ -148,4 +165,4 @@ Relationships:
 
 ### Low Level Design
 
-![alt text](LLD.png)
+![alt text](/images/LLD.png)
