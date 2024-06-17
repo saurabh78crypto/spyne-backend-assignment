@@ -22,15 +22,17 @@ Ensure you have Node.js installed on your machine. You can download it from Node
 
 1. Clone the repository to your local machine
 ``
+https://github.com/saurabh78crypto/spyne-backend-assignment.git
 ``
 
 2. Navigate to the root directory of your cloned repository
 ``
+cd spyne-backend-assignment
 ``
 
 #### Running the Service Locally
 
-##### User Management Service 
+#### User Management Service 
 3. Navigate to the directory containning the User Management Service
 ``
 cd user-management-service
@@ -42,7 +44,7 @@ npm install
 npm start
 ``
 
-##### Discussion Service 
+#### Discussion Service 
 3. Navigate to the directory containning the Discussion Service
 ``
 cd discussion-service
@@ -79,3 +81,8 @@ npm start
 - Delete Discussion: DELETE `/discussions/discussion/delete/:id`
 - Get List of Discussions by Text or Tag: GET `/discussions/discussions/search`
 - Increment the View Count of Discussion: GET `/discussions/discussion/:id`
+
+
+### Low Level Design
+
+![alt text](LLD.png)
