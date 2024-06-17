@@ -83,7 +83,69 @@ npm start
 - Increment the View Count of Discussion: GET `/discussions/discussion/:id`
 
 
-### Low Level Design
+## Database Schema
 
+### User Management Service Schema
+
+User Collection
+
++ Fields:
+    - `_id`: ObjectId (MongoDB default)
+    - `name`: String
+    - `mobileNo`: String, Unique
+    - `email`: String, Unique
+    - `password`: String
+    - `tokens`: Array of Objects, Each containing a token string
+    - `followers`: Array of ObjectIds referencing other User documents
+    - `following`: Array of ObjectIds referencing other User documents
+
+Relationships:
+- A user can follow another user (followers array in the User document).
+- A user can be followed by another user (following array in the User document).
+
+### Discussion Service Schema
+
+Discussion Collection
+
++ Fields:
+    - `_id`: ObjectId (MongoDB default)
+    - `text`: String
+    - `image`: Buffer (for storing images)
+    - `hashtags`: Array of Strings
+    - `createdAt`: Date
+    - `userId`: ObjectId referencing User document
+    - `isStandalone`: Boolean
+    - `comments`: Array of ObjectIds referencing Comment documents
+    - `views`: Number
+    - `likes`: Array of ObjectIds referencing User documents
+
+Comment Collection
+
++ Fields:
+    - `_id`: ObjectId (MongoDB default)
+    - `text`: String
+    - `userId`: ObjectId referencing User document
+    - `discussionId`: ObjectId referencing Discussion document
+    - `createdAt`: Date
+    - `likes`: Array of ObjectIds referencing User documents
+    - `replies`: Array of ObjectIds referencing Reply documents
+
+Reply Collection
+
++ Fields:
+    - `_id`: ObjectId (MongoDB default)
+    - `text`: String
+    - `userId`: ObjectId referencing User document
+    - `commentId`: ObjectId referencing Comment document
+    - `createdAt`: Date
+
+Relationships:
+- A discussion can have multiple comments (comments array in the Discussion document).
+- A comment can have multiple replies (replies array in the Comment document).
+- A user can like a discussion (likes array in the Discussion document).
+- A user can like a comment (likes array in the Comment document).
+
+
+### Low Level Design
 
 ![alt text](LLD.png)
